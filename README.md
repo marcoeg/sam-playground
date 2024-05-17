@@ -57,3 +57,14 @@ Fetching table: industry_solutions.esg_scoring.impact_ghana_df
 ```
 $ npm i @databricks/sql
 ```
+
+This script assumes that you have set the following environment variables:
+
+`DATABRICKS_SERVER_HOSTNAME` set to the Server Hostname value for your cluster or SQL warehouse.
+
+`DATABRICKS_HTTP_PATH` set to HTTP Path value for your cluster or SQL warehouse.
+
+`DATABRICKS_TOKEN` set to the Databricks personal access token.
+
+Connection details and token generation are in Databricks: `SQL Warehouses/[Warehouse]`
+
