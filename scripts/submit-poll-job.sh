@@ -5,12 +5,14 @@
 # The script starts by checking if the correct number of arguments is provided. If not, it prints a usage message and exits.
 # Next, it assigns the provided arguments to the corresponding variables (SAM_Table, IA_Index, IA_Value).
 # It then loads environment variables from a .env file using the export command and grep to filter out comments.
+#
 # The script constructs a JSON payload with the job parameters and submits the job using a POST request with curl.
 # The response from the job submission is parsed to extract the run_id, which is used to poll the job status.
 # A while loop is used to continuously check the job status every 10 seconds until the job reaches a terminal state
 # (TERMINATED, SKIPPED, or INTERNAL_ERROR). The final job status is printed to the console.
-# The script includes error handling to ensure that the run_id is retrieved correctly and prints the full status response
-# for debugging purposes if necessary.
+
+# Example:
+# $ ./submit_job.sh ita2020_matrix 7 0.075
 
 # Check if the correct number of arguments is provided
 if [ "$#" -ne 3 ]; then
