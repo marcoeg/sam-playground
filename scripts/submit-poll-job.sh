@@ -41,9 +41,9 @@ export $(grep -v '^#' ../.env | sed 's/^export //g' | xargs)
 #  -d '{
 #    "job_id": 289803488124851,
 #    "notebook_params": {
-#     "SAM_Table": "example_table",
-#      "IA_Index": "42",
-#      "IA_Value": "1000"
+#     "SAM_Table": "ita2020_matrix",
+#      "IA_Index": "1",
+#      "IA_Value": "0.5"
 #    }
 # }
  
