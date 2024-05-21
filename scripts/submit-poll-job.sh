@@ -30,8 +30,23 @@ echo "SAM_Table: $SAM_Table"
 echo "IA_Index: $IA_Index"
 echo "IA_Value: $IA_Value"
 
+# grab the enviromental variables from .env
 export $(grep -v '^#' ../.env | sed 's/^export //g' | xargs)
 
+# Execute a notebook using curl. 
+#
+# curl -X POST https://$DATABRICKS_SERVER_HOSTNAME/api/2.0/jobs/run-now \
+#  -H "Authorization: Bearer $DATABRICKS_TOKEN" \
+#  -H "Content-Type: application/json" \
+#  -d '{
+#    "job_id": 289803488124851,
+#    "notebook_params": {
+#     "SAM_Table": "example_table",
+#      "IA_Index": "42",
+#      "IA_Value": "1000"
+#    }
+# }
+ 
 response=$(curl -s -X POST https://$DATABRICKS_SERVER_HOSTNAME/api/2.0/jobs/run-now \
   -H "Authorization: Bearer $DATABRICKS_TOKEN" \
   -H "Content-Type: application/json" \
