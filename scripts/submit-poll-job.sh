@@ -46,6 +46,11 @@ response=$(curl -s -X POST https://$DATABRICKS_SERVER_HOSTNAME/api/2.0/jobs/run-
 
 run_id=$(echo $response | jq -r '.run_id')
 
+# Check if run_id is retrieved correctly
+if [[ -z "$run_id" || "$run_id" == "null" ]]; then
+  echo "Failed to retrieve run_id. Response: $response"
+  exit 1
+fi
 
 echo "Job submitted with run_id: $run_id"
 
